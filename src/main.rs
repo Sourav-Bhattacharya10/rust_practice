@@ -1,0 +1,48 @@
+// use crate::struct_file::Car;
+use crate::classic_struct_file2::Person;
+use crate::tuple_struct::Point2D;
+
+
+mod print;
+mod array;
+mod functions;
+mod classic_struct_file;
+mod classic_struct_file2;
+mod tuple_struct;
+
+fn main() {
+    // print.rs
+    print::print_number(10);
+    print::print_message("Sourav");
+
+    // array.rs
+    array::test_array();
+
+    // function.rs
+    let flag = functions::return_bool();
+    println!("Bool {}", flag);
+    let greeting = functions::greet_string(String::from("Deviac"));
+    println!("Greeting message : {}", greeting);
+
+    // classic_struct_file.rs
+    let car1 = classic_struct_file::Car {
+        make: String::from("Ford"),
+        model: String::from("Mustang"),
+        year: 1967
+    };
+    println!("Car Details {make} {model} {year}", make=car1.make, model=car1.model, year=car1.year);
+
+    // classic_struct_file2.rs
+    let person1 = Person {
+        name: String::from("Priya"),
+        like_oranges: true
+    };
+    let does_like_oranges = if person1.like_oranges { "like oranges" } else { "does not like oranges" };
+    println!("Person Details : {0} {1}", person1.name, does_like_oranges);
+
+    // tuple_struct.rs
+    let origin = Point2D(10, 20);
+    let Point2D(i, j) = origin;
+    println!("Point coordinates are : {:?}", origin);
+    println!("After destructuring, point coordinates are : {} {}", i, j);
+}
