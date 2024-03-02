@@ -1,7 +1,7 @@
 // use crate::struct_file::Car;
 use crate::classic_struct_file2::Person;
 use crate::tuple_struct::Point2D;
-
+use crate::enums_file::CardinalDirections;
 
 mod print;
 mod array;
@@ -9,6 +9,7 @@ mod functions;
 mod classic_struct_file;
 mod classic_struct_file2;
 mod tuple_struct;
+mod enums_file;
 
 fn main() {
     // print.rs
@@ -45,4 +46,9 @@ fn main() {
     let Point2D(i, j) = origin;
     println!("Point coordinates are : {:?}", origin);
     println!("After destructuring, point coordinates are : {} {}", i, j);
+
+    // enums_file.rs
+    let direction1 = CardinalDirections::North;
+    let direction2 = CardinalDirections::South(String::from("South"));
+    println!("Directions {} {}", direction1, direction2);
 }
