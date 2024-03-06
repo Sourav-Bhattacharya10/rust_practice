@@ -2,6 +2,7 @@
 use crate::classic_struct_file2::Person;
 use crate::tuple_struct::Point2D;
 use crate::enums_file::CardinalDirections;
+use crate::generic_enum_file::Options;
 
 mod print;
 mod array;
@@ -10,11 +11,14 @@ mod classic_struct_file;
 mod classic_struct_file2;
 mod tuple_struct;
 mod enums_file;
+mod generic_enum_file;
+
 
 fn main() {
     // print.rs
     print::print_number(10);
     print::print_message("Sourav");
+    print::print_bases();
 
     // array.rs
     array::test_array();
@@ -51,4 +55,9 @@ fn main() {
     let direction1 = CardinalDirections::North;
     let direction2 = CardinalDirections::South(String::from("South"));
     println!("Directions {} {}", direction1, direction2);
+
+    // generic_enum_file.rs
+    let something = Options::<i32>::Some(1);
+    let none = Options::<i32>::None;
+    println!("Generic enum : {}, {}", something, none);
 }
