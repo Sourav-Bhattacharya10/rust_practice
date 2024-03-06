@@ -12,6 +12,7 @@ mod classic_struct_file2;
 mod tuple_struct;
 mod enums_file;
 mod generic_enum_file;
+mod control_flow;
 
 
 fn main() {
@@ -60,4 +61,7 @@ fn main() {
     let something = Options::<i32>::Some(1);
     let none = Options::<i32>::None;
     println!("Generic enum : {}, {}", something, none);
+
+    // control_flow.rs
+    control_flow::match_test(something);
 }
