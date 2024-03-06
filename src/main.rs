@@ -13,6 +13,7 @@ mod tuple_struct;
 mod enums_file;
 mod generic_enum_file;
 mod control_flow;
+mod loop_file;
 
 
 fn main() {
@@ -64,4 +65,7 @@ fn main() {
 
     // control_flow.rs
     control_flow::match_test(something);
+
+    // loop_file.rs
+    loop_file::for_test();
 }
