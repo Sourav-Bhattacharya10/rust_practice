@@ -14,6 +14,7 @@ mod enums_file;
 mod generic_enum_file;
 mod control_flow;
 mod loop_file;
+mod error_handling;
 
 
 fn main() {
@@ -68,4 +69,9 @@ fn main() {
 
     // loop_file.rs
     loop_file::for_test();
+
+    // error_handling.rs
+    error_handling::option_test();
+
+    error_handling::result_test();
 }

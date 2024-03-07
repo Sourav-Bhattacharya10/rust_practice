@@ -1,7 +1,7 @@
 // Manually implementing Display trait for enum
 use std::{any::type_name, fmt};
 
-pub enum Options<T> {
+pub enum Options<T> { // rust has Option<T> by default, this is just a practice
     Some(T),
     None
 }
