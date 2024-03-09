@@ -16,6 +16,7 @@ mod control_flow;
 mod loop_file;
 mod error_handling;
 mod ownership;
+mod reference_borrow;
 
 
 fn main() {
@@ -72,9 +73,9 @@ fn main() {
     loop_file::for_test();
 
     // error_handling.rs
-    error_handling::option_test();
+    // error_handling::option_test();
 
-    error_handling::result_test();
+    // error_handling::result_test();
 
     // ownership.rs
     ownership::ownership_test();
@@ -88,4 +89,32 @@ fn main() {
                                         // takes_and_gives_back, which also
                                         // moves its return value into s3
     println!("Ownership and Function returns : {}", s3);
+
+    // reference_borrow.rs
+    let s1 = String::from("hello");
+    let len = reference_borrow::calculate_length(&s1);
+    println!("The length of '{}' is {}.", s1, len);
+
+    let mut mut_str = String::from("hello");
+    reference_borrow::change(&mut mut_str);
+    println!("Mutable reference: {}", mut_str);
+
+    // let mut s = String::from("hello");
+
+    // let r1 = &s; // no problem
+    // let r2 = &s; // no problem
+    // let r3 = &mut s; // BIG PROBLEM
+
+    // println!("{}, {}, and {}", r1, r2, r3);
+
+
+    // let mut s = String::from("hello");
+
+    // let r1 = &s; // no problem
+    // let r2 = &s; // no problem
+    // println!("{} and {}", r1, r2);
+    // // variables r1 and r2 will not be used after this point
+
+    // let r3 = &mut s; // no problem
+    // println!("{}", r3);
 }
