@@ -17,7 +17,7 @@ mod loop_file;
 mod error_handling;
 mod ownership;
 mod reference_borrow;
-
+mod string_slice;
 
 fn main() {
     // print.rs
@@ -117,4 +117,14 @@ fn main() {
 
     // let r3 = &mut s; // no problem
     // println!("{}", r3);
+
+    // string_slice.rs
+    string_slice::reference_slice();
+
+    let mut s = String::from("hello world");
+    let word = string_slice::first_word(&s);
+
+    // s.clear(); // error!
+
+    println!("the first word is: {}", word);
 }
