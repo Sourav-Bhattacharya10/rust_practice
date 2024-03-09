@@ -15,6 +15,7 @@ mod generic_enum_file;
 mod control_flow;
 mod loop_file;
 mod error_handling;
+mod ownership;
 
 
 fn main() {
@@ -74,4 +75,17 @@ fn main() {
     error_handling::option_test();
 
     error_handling::result_test();
+
+    // ownership.rs
+    ownership::ownership_test();
+
+    let s1 = String::from("SB");
+    ownership::takes_ownership(s1);
+    // println!("Ownership and Functions : {}", s1); // error, s1 is moved in the above statement
+
+    let s2 = String::from("hello");     // s2 comes into scope
+    let s3 = ownership::takes_and_gives_back(s2);  // s2 is moved into
+                                        // takes_and_gives_back, which also
+                                        // moves its return value into s3
+    println!("Ownership and Function returns : {}", s3);
 }
