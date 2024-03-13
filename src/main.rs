@@ -3,6 +3,7 @@ use crate::classic_struct_file2::Person;
 use crate::tuple_struct::Point2D;
 use crate::enums_file::CardinalDirections;
 use crate::generic_enum_file::Options;
+use crate::classic_struct_file3::Rectangle;
 
 mod print;
 mod array;
@@ -18,6 +19,7 @@ mod error_handling;
 mod ownership;
 mod reference_borrow;
 mod string_slice;
+mod classic_struct_file3;
 
 fn main() {
     // print.rs
@@ -127,4 +129,17 @@ fn main() {
     // s.clear(); // error!
 
     println!("the first word is: {}", word);
+
+    // classic_struct_file3.rs
+    let rect1 = Rectangle {
+        width: 30,
+        height: 40
+    };
+
+    let area = classic_struct_file3::area_rectangle(&rect1);
+    println!("Area of the Rectangle : {}, {:?}", area, rect1);
+
+    // method syntax
+    let area2 = rect1.area_of_rectangle();
+    println!("Area of the Rectangle using Method syntax : {}, {:?}", area2, rect1);
 }
