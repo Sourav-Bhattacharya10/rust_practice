@@ -20,6 +20,7 @@ mod ownership;
 mod reference_borrow;
 mod string_slice;
 mod classic_struct_file3;
+mod rand_test;
 
 fn main() {
     // print.rs
@@ -142,4 +143,8 @@ fn main() {
     // method syntax
     let area2 = rect1.area_of_rectangle();
     println!("Area of the Rectangle using Method syntax : {}, {:?}", area2, rect1);
+
+    // rand_test.rs
+    let sec_num = rand_test::generate_random_number(1, 10);
+    println!("Generated random number: {}", sec_num);
 }
