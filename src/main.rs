@@ -146,5 +146,5 @@ fn main() {
 
     // rand_test.rs
     let sec_num = rand_test::generate_random_number(1, 10);
-    println!("Generated random number: {}", sec_num);
+    println!("Generated random number: {sec_num}");
 }
