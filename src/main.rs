@@ -21,6 +21,7 @@ mod reference_borrow;
 mod string_slice;
 mod classic_struct_file3;
 mod rand_test;
+mod vector_test;
 
 fn main() {
     // print.rs
@@ -147,4 +148,9 @@ fn main() {
     // rand_test.rs
     let sec_num = rand_test::generate_random_number(1, 10);
     println!("Generated random number: {sec_num}");
+
+    // vector_test.rs
+    vector_test::updating_vectors();
+    vector_test::reading_vectors();
+    vector_test::iterating_and_mutating_vectors();
 }
