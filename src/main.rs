@@ -160,15 +160,41 @@
 
 
 // exercises
-use crate::exercises::control_flow_summary::temperature_conversion;
+use std::io;
+
+// use crate::exercises::control_flow_summary::temperature_conversion;
+use crate::exercises::control_flow_summary::fibonacci;
+
 mod exercises;
 
 fn main(){
-    let f1: f32 = -40.0;
-    let c1 = temperature_conversion::convert_temp(f1, temperature_conversion::Temperature::Fahrenheit);
-    println!("{f1}F to {c1}C");
+    // // temperature_conversion
+    // let f1: f32 = -40.0;
+    // let c1 = temperature_conversion::convert_temp(f1, temperature_conversion::Temperature::Fahrenheit);
+    // println!("{f1}F to {c1}C");
 
-    let c2: f32 = 0.0;
-    let f2 = temperature_conversion::convert_temp(c2, temperature_conversion::Temperature::Celsius);
-    println!("{c2}C to {f2}F");
+    // let c2: f32 = 0.0;
+    // let f2 = temperature_conversion::convert_temp(c2, temperature_conversion::Temperature::Celsius);
+    // println!("{c2}C to {f2}F");
+
+    // fibonacci
+    println!("Please input your nth term:");
+
+    let mut nth_term_str = String::new();
+
+    io::stdin()
+        .read_line(&mut nth_term_str)
+        .expect("Failed to read line");
+
+    let nth_term: u32 = match nth_term_str.trim_end().parse::<u32>() {
+        Ok(n) => n,
+        Err(e) => {
+            println!("{:?}", e);
+            0
+        }
+    };
+
+    let fibo_value = fibonacci::generate_fibonacci(nth_term);
+
+    println!("The generated fibonacci value for the {nth_term}th term is {fibo_value}");
 }
