@@ -160,10 +160,11 @@
 
 
 // exercises
-use std::io;
+// use std::io;
 
 // use crate::exercises::control_flow_summary::temperature_conversion;
-use crate::exercises::control_flow_summary::fibonacci;
+// use crate::exercises::control_flow_summary::fibonacci;
+use crate::exercises::collections_summary::vector_median_mode;
 
 mod exercises;
 
@@ -177,24 +178,32 @@ fn main(){
     // let f2 = temperature_conversion::convert_temp(c2, temperature_conversion::Temperature::Celsius);
     // println!("{c2}C to {f2}F");
 
-    // fibonacci
-    println!("Please input your nth term:");
+    // // fibonacci
+    // println!("Please input your nth term:");
 
-    let mut nth_term_str = String::new();
+    // let mut nth_term_str = String::new();
 
-    io::stdin()
-        .read_line(&mut nth_term_str)
-        .expect("Failed to read line");
+    // io::stdin()
+    //     .read_line(&mut nth_term_str)
+    //     .expect("Failed to read line");
 
-    let nth_term: u32 = match nth_term_str.trim_end().parse::<u32>() {
-        Ok(n) => n,
-        Err(e) => {
-            println!("{:?}", e);
-            0
-        }
-    };
+    // let nth_term: u32 = match nth_term_str.trim_end().parse::<u32>() {
+    //     Ok(n) => n,
+    //     Err(e) => {
+    //         println!("{:?}", e);
+    //         0
+    //     }
+    // };
 
-    let fibo_value = fibonacci::generate_fibonacci(nth_term);
+    // let fibo_value = fibonacci::generate_fibonacci(nth_term);
 
-    println!("The generated fibonacci value for the {nth_term}th term is {fibo_value}");
+    // println!("The generated fibonacci value for the {nth_term}th term is {fibo_value}");
+
+    // vector_median_mode
+    let int_list = vec![8, 3, 4, 1, 3, 2, 5, 5, 5];
+    let median = vector_median_mode::calculate_median(int_list.clone());
+    println!("The median for the {:?} vector is {}", int_list, median);
+
+    let mode = vector_median_mode::calculate_mode(&int_list);
+    println!("The mode for the {:?} vector is {}", int_list, mode);
 }
