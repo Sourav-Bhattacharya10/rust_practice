@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 #[derive(Debug)]
 pub struct Employee {
     pub emp_id: u16,
@@ -6,8 +8,15 @@ pub struct Employee {
     pub dept_id: u16
 }
 
+
+
 pub fn add_employee_to_dept(name: &str, dept: &str, emps: & mut Vec<Employee>){
-    let dept_id: u16 =  if dept == "Engg" { 1 } else if dept == "Sales" { 2 } else { 3 };
+    let mut dept_hash_map: HashMap<String, u16> = HashMap::new();
+    dept_hash_map.insert(String::from("Engg"), 1);
+    dept_hash_map.insert(String::from("Sales"), 2);
+    dept_hash_map.insert(String::from("Marketing"), 3);
+
+    let dept_id: u16 =  *dept_hash_map.get(dept).unwrap();
     emps.push(Employee {emp_id: emps.len() as u16 + 1, name: String::from(name), dept_id: dept_id, dept: String::from(dept)})
 }
 
