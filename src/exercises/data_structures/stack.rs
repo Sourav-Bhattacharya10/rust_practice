@@ -37,7 +37,7 @@ where
         } else {
             println!(
                 "Value {:#?} popped out of Stack",
-                self.elements[self.top as usize]
+                self.elements[self.top as usize].unwrap()
             );
             self.elements[self.top as usize] = None;
             self.top -= 1;
@@ -50,7 +50,7 @@ where
         } else {
             let temp_top = self.top;
             for i in (0..=temp_top).rev() {
-                println!("[{}]: {:#?}", i, self.elements[i as usize]);
+                println!("[{}]: {:#?}", i, self.elements[i as usize].unwrap());
             }
         }
     }
