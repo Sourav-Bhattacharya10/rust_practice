@@ -4,7 +4,9 @@
 // use crate::enums_file::CardinalDirections;
 // use crate::generic_enum_file::Options;
 // use crate::classic_struct_file3::Rectangle;
-use std::env;
+// use std::env;
+// use crate::trait_file::{NewsArticle, Tweet, Summary, notify, returns_newsarticle_summarizable};
+use trait_object::{Button, Screen};
 
 // mod print;
 // mod array;
@@ -23,6 +25,8 @@ use std::env;
 // mod classic_struct_file3;
 // mod rand_test;
 // mod vector_test;
+// mod trait_file;
+mod trait_object;
 
 fn main() {
     // // print.rs
@@ -112,7 +116,6 @@ fn main() {
 
     // // println!("{}, {}, and {}", r1, r2, r3);
 
-
     // // let mut s = String::from("hello");
 
     // // let r1 = &s; // no problem
@@ -155,8 +158,44 @@ fn main() {
     // vector_test::reading_vectors();
     // vector_test::iterating_and_mutating_vectors();
 
-    let args: Vec<_> = env::args().collect();
-    if args.len() > 0 {
-        println!("Args : {:?}", args);
-    }
+    // let args: Vec<_> = env::args().collect();
+    // if args.len() > 0 {
+    //     println!("Args : {:?}", args);
+    // }
+
+    // let tweet = Tweet {
+    //     username: String::from("horse_ebooks"),
+    //     content: String::from(
+    //         "of course, as you probably already know, people",
+    //     ),
+    //     reply: false,
+    //     retweet: false,
+    // };
+
+    // println!("1 new tweet: {}", tweet.summarize());
+    // notify(&tweet);
+
+    // let article = NewsArticle {
+    //     headline: String::from("Penguins win the Stanley Cup Championship!"),
+    //     location: String::from("Pittsburgh, PA, USA"),
+    //     author: String::from("Iceburgh"),
+    //     content: String::from(
+    //         "The Pittsburgh Penguins once again are the best \
+    //          hockey team in the NHL.",
+    //     ),
+    // };
+
+    // println!("New article available! {}", article.summarize());
+
+    // println!("Another article! {}", returns_newsarticle_summarizable().summarize());
+
+    let screen = Screen {
+        components: vec![Box::new(Button {
+            width: 50,
+            height: 10,
+            label: String::from("OK"),
+        })],
+    };
+
+    screen.run();
 }
