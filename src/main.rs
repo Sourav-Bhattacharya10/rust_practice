@@ -7,7 +7,8 @@
 // use crate::exercises::control_flow_summary::fibonacci;
 // use crate::exercises::collections_summary::vector_median_mode;
 // use crate::exercises::collections_summary::emp_dept::{self, add_employee_to_dept, display_employees_in_a_dept_asc_ordered};
-use crate::exercises::data_structures::stack::Stack;
+// use crate::exercises::data_structures::stack::Stack;
+use exercises::data_structures::queue::Queue;
 
 mod exercises;
 
@@ -98,34 +99,67 @@ fn main() {
     //     }
     // }
 
-    // exercises/data_structure/stack.rs
+    // // exercises/data_structure/stack.rs
+    // const N: usize = 5;
+    // let mut stack_object: Stack<u8, N> = Stack::new();
+
+    // stack_object.display(); // empty stack
+
+    // //  push operations
+    // stack_object.push(10);
+    // stack_object.push(11);
+    // stack_object.push(12);
+
+    // stack_object.display(); // partial stack
+
+    // stack_object.push(13);
+    // stack_object.push(14);
+    // stack_object.push(15);
+
+    // stack_object.display(); // full stack
+
+    // //  pop operations
+    // stack_object.pop();
+    // stack_object.pop();
+    // stack_object.pop();
+
+    // stack_object.display(); // partial stack
+
+    // stack_object.pop();
+    // stack_object.pop();
+    // stack_object.pop();
+
+    // stack_object.display(); // empty stack
+
+    // exercises/data_structure/queue.rs
     const N: usize = 5;
-    let mut stack_object: Stack<u8, N> = Stack::new();
+    let mut queue_object: Queue<u8, N> = Queue::new();
 
-    stack_object.display(); // empty stack
+    queue_object.display(); // empty stack
 
-    //  push operations
-    stack_object.push(10);
-    stack_object.push(11);
-    stack_object.push(12);
+    //  enqueue operations
+    queue_object.enqueue(10);
+    queue_object.enqueue(11);
+    queue_object.enqueue(12);
 
-    stack_object.display(); // partial stack
+    queue_object.display(); // partial stack
 
-    stack_object.push(13);
-    stack_object.push(14);
-    stack_object.push(15);
+    queue_object.enqueue(13);
+    queue_object.enqueue(14);
+    queue_object.enqueue(15);
 
-    stack_object.display(); // full stack
+    queue_object.display(); // full stack
 
-    stack_object.pop();
-    stack_object.pop();
-    stack_object.pop();
+    //  dequeue operations
+    queue_object.dequeue();
+    queue_object.dequeue();
+    queue_object.dequeue();
 
-    stack_object.display(); // partial stack
+    queue_object.display(); // partial stack
 
-    stack_object.pop();
-    stack_object.pop();
-    stack_object.pop();
+    queue_object.dequeue();
+    queue_object.dequeue();
+    queue_object.dequeue();
 
-    stack_object.display(); // empty stack
+    queue_object.display(); // empty stack
 }
