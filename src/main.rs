@@ -160,16 +160,20 @@
 
 
 // exercises
-use std::io;
+// use std::io;
 
-use exercises::collections_summary::emp_dept::{display_all_employees, Employee};
+// use exercises::collections_summary::emp_dept::{display_all_employees, Employee};
 
 // use crate::exercises::control_flow_summary::temperature_conversion;
 // use crate::exercises::control_flow_summary::fibonacci;
 // use crate::exercises::collections_summary::vector_median_mode;
-use crate::exercises::collections_summary::emp_dept::{self, add_employee_to_dept, display_employees_in_a_dept_asc_ordered};
+// use crate::exercises::collections_summary::emp_dept::{self, add_employee_to_dept, display_employees_in_a_dept_asc_ordered};
 
-mod exercises;
+// mod exercises;
+
+mod linked_list;
+
+use linked_list::LinkedList;
 
 fn main(){
     // // temperature_conversion
@@ -211,9 +215,9 @@ fn main(){
     // println!("The mode for the {:?} vector is {}", int_list, mode);
 
     // emp_dept
-    println!("Welcome to Employee Management System!!");
+    // println!("Welcome to Employee Management System!!");
 
-    let mut emps = Vec::<Employee>::new();
+    // let mut emps = Vec::<Employee>::new();
 
     // statically inserted employees
     // emps.push(Employee {emp_id: 1, name: String::from("Alfa"), dept_id: 1, dept: String::from("Engg")});
@@ -221,41 +225,51 @@ fn main(){
     // emps.push(Employee {emp_id: 3, name: String::from("Charlie"), dept_id: 1, dept: String::from("Engg")});
 
     // get employees from user input
-    loop {
-        println!("Please type one of the options:");
-        println!("1. To add a new employee with Department Name, type - Add Alfa to Engg/Sales/Marketing");
-        println!("2. To display employees in a department, type - Display Engg/Sales/Marketing employees");
-        println!("3. To display all employees in the company, type - Display all");
-        println!("4. to exit, type - Exit");
+    // loop {
+    //     println!("Please type one of the options:");
+    //     println!("1. To add a new employee with Department Name, type - Add Alfa to Engg/Sales/Marketing");
+    //     println!("2. To display employees in a department, type - Display Engg/Sales/Marketing employees");
+    //     println!("3. To display all employees in the company, type - Display all");
+    //     println!("4. to exit, type - Exit");
 
 
-        let mut user_input = String::new();
+    //     let mut user_input = String::new();
 
-        io::stdin()
-            .read_line(&mut user_input)
-            .expect("Failed to read line");
+    //     io::stdin()
+    //         .read_line(&mut user_input)
+    //         .expect("Failed to read line");
 
-        user_input = String::from(user_input.trim_end());
+    //     user_input = String::from(user_input.trim_end());
 
-        if user_input.len() > 0 {
-            let user_input_parts: Vec<&str> = user_input.split(' ').collect();
-            if user_input_parts[0] == "Exit" {
-                break;
-            }
-            else {
-                if user_input_parts[0] == "Add" {
-                    add_employee_to_dept(user_input_parts[1], user_input_parts[3], & mut emps)
-                }
-                else if user_input_parts[0] == "Display" && user_input_parts[1] == "all" {
-                    display_all_employees(&emps);
-                }
-                else {
-                    display_employees_in_a_dept_asc_ordered(user_input_parts[1], &emps);
-                }
-            }
-        }
-        else {
-            println!("Empty user input!! Please enter valid user input: ");
-        }
-    }
+    //     if user_input.len() > 0 {
+    //         let user_input_parts: Vec<&str> = user_input.split(' ').collect();
+    //         if user_input_parts[0] == "Exit" {
+    //             break;
+    //         }
+    //         else {
+    //             if user_input_parts[0] == "Add" {
+    //                 add_employee_to_dept(user_input_parts[1], user_input_parts[3], & mut emps)
+    //             }
+    //             else if user_input_parts[0] == "Display" && user_input_parts[1] == "all" {
+    //                 display_all_employees(&emps);
+    //             }
+    //             else {
+    //                 display_employees_in_a_dept_asc_ordered(user_input_parts[1], &emps);
+    //             }
+    //         }
+    //     }
+    //     else {
+    //         println!("Empty user input!! Please enter valid user input: ");
+    //     }
+    // }
+
+    // let mut list = LinkedList::new();
+    // list = list.prepend(1);
+    // list = list.prepend(2);
+    // list.display();
+
+    let mut list = LinkedList::new();
+    list = list.append(1);
+    list = list.append(2);
+    list.display();
 }
